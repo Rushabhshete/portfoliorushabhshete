@@ -1,0 +1,107 @@
+@import "tailwindcss";
+@config "../../tailwind.config.js";
+
+@theme inline {
+  --font-sans: "Space Grotesk", Arial, Helvetica, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  body {
+    @apply font-sans text-black transition-colors duration-200 antialiased;
+    background-color: #FFFDF5;
+    background-image: radial-gradient(circle, #000 1.8px, transparent 1.8px);
+    background-size: 32px 32px;
+  }
+
+  html.dark body {
+    @apply text-white;
+    background-color: #121212;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.35) 1.8px, transparent 1.8px);
+    background-size: 32px 32px;
+  }
+}
+
+/* Zigzag decorative divider */
+.zigzag-divider {
+  background: linear-gradient(135deg, #000 33.33%, transparent 33.33%) -12px 0,
+    linear-gradient(225deg, #000 33.33%, transparent 33.33%) -12px 0,
+    linear-gradient(315deg, #000 33.33%, transparent 33.33%),
+    linear-gradient(45deg, #000 33.33%, transparent 33.33%);
+  background-size: 24px 12px;
+  background-repeat: repeat-x;
+  height: 12px;
+  width: 100%;
+}
+
+html.dark .zigzag-divider {
+  background: linear-gradient(135deg, #fff 33.33%, transparent 33.33%) -12px 0,
+    linear-gradient(225deg, #fff 33.33%, transparent 33.33%) -12px 0,
+    linear-gradient(315deg, #fff 33.33%, transparent 33.33%),
+    linear-gradient(45deg, #fff 33.33%, transparent 33.33%);
+  background-size: 24px 12px;
+  background-repeat: repeat-x;
+  height: 12px;
+}
+
+/* Section color blocks */
+.section-dotted {
+  background-color: #FFFDF5;
+  background-image: radial-gradient(circle, #000 1.8px, transparent 1.8px);
+  background-size: 32px 32px;
+}
+
+html.dark .section-dotted {
+  background-color: #121212;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.35) 1.8px, transparent 1.8px);
+  background-size: 32px 32px;
+}
+
+.section-yellow {
+  background-color: #FFD93D;
+}
+
+html.dark .section-yellow {
+  background-color: #b89a1c;
+}
+
+.section-accent {
+  background-color: #FF6B6B;
+}
+
+html.dark .section-accent {
+  background-color: #c44444;
+}
+
+.section-violet {
+  background-color: #C4B5FD;
+}
+
+html.dark .section-violet {
+  background-color: #6a5aad;
+}
+
+.section-black {
+  background-color: #000;
+  color: #fff;
+}
+
+html.dark .section-black {
+  background-color: #1a1a1a;
+}
+
+.neo-click {
+  @apply active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all duration-100;
+}
+
+.stroke-text {
+  -webkit-text-stroke: 4px #000;
+  color: transparent;
+}
+
+html.dark .stroke-text {
+  -webkit-text-stroke: 4px #fff;
+}
