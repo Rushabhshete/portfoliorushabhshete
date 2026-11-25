@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Code2, Database, Layout, PenTool, Star } from "lucide-react";
 import { RevealText } from "./RevealText";
 
@@ -40,9 +39,6 @@ const skills = [
 ];
 
 export function SkillsSection() {
-  // We duplicate the skills array to make the infinite loop seamless
-  const duplicatedSkills = [...skills, ...skills, ...skills, ...skills];
-
   return (
     <section id="skills" className="relative w-full py-16 sm:py-20 lg:py-32 z-10 bg-neo-muted border-y-4 sm:border-y-8 border-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 relative mb-10 sm:mb-16">
@@ -57,16 +53,12 @@ export function SkillsSection() {
         </div>
       </div>
 
-      <div className="relative flex overflow-x-hidden border-y-4 border-black bg-white py-8 sm:py-12 rotate-[-2deg] shadow-neo-md w-[110%] -ml-[5%]">
-        <motion.div
-          animate={{ x: [0, "-50%"] }}
-          transition={{ repeat: Infinity, ease: "linear", duration: 30 }}
-          className="flex whitespace-nowrap items-center gap-8 sm:gap-12 px-4 shrink-0"
-        >
-          {duplicatedSkills.map((skill, index) => (
+      <div className="mx-auto max-w-7xl px-4 sm:px-8">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {skills.map((skill) => (
             <div 
-              key={index} 
-              className={`flex-shrink-0 w-[300px] sm:w-[400px] border-2 sm:border-4 border-black p-4 sm:p-6 shadow-[8px_8px_0px_#000] cursor-default ${skill.color} ${skill.textColor} ${skill.rotation} hover:rotate-0 hover:z-20 transition-transform`}
+              key={skill.title}
+              className={`h-full border-2 sm:border-4 border-black p-4 sm:p-6 shadow-[8px_8px_0px_#000] cursor-default ${skill.color} ${skill.textColor} ${skill.rotation} hover:rotate-0 hover:z-20 transition-transform`}
             >
               <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6 border-b-2 sm:border-b-4 border-black pb-3 sm:pb-4">
                 <div className="bg-white text-black p-1.5 sm:p-2 border-2 sm:border-4 border-black transform -rotate-3 rounded-none">
@@ -85,7 +77,7 @@ export function SkillsSection() {
               </ul>
             </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
