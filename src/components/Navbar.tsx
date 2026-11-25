@@ -70,7 +70,7 @@ export function Navbar() {
 
             <div className="flex items-center gap-3">
               <ThemeToggle inNavbar />
-              <NeoButton variant="primary" className="h-9 px-4 text-xs" onClick={() => window.open('/resume.pdf', '_blank')}>
+              <NeoButton variant="primary" className="h-9 px-4 text-xs" onClick={() => window.open('/Rushabh_Shete_Resume.pdf', '_blank')}>
                 <Download className="mr-1.5 h-3.5 w-3.5" /> Resume
               </NeoButton>
             </div>

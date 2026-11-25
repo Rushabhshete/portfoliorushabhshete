@@ -6,6 +6,7 @@ import { AboutSection } from "@/components/AboutSection";
 import { SkillsSection } from "@/components/SkillsSection";
 import { ExperienceSection } from "@/components/ExperienceSection";
 import { ProjectsSection } from "@/components/ProjectsSection";
+import { PlaygroundSection } from "@/components/PlaygroundSection";
 import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
 import { SnakeGame } from "@/components/SnakeGame";
@@ -65,6 +66,12 @@ export default function Home() {
       <div className="section-dotted relative">
         <FloatingShape className="w-12 h-12 bg-neo-secondary rotate-12 top-20 right-10 hidden lg:block" />
         <ProjectsSection />
+      </div>
+
+      <ZigzagDivider />
+
+      <div className="section-yellow relative">
+        <PlaygroundSection gameState={gameState} setGameState={setGameState} />
       </div>
 
       <ZigzagDivider />

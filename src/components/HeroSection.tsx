@@ -1,8 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowRight, Download, Mail, Gamepad2, X, Check } from "lucide-react";
+import { ArrowRight, Download, Mail, X } from "lucide-react";
 import { NeoButton } from "./NeoButton";
 
 export function HeroSection({
@@ -82,61 +81,27 @@ export function HeroSection({
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 1.0 }}
-              className="mt-10 sm:mt-14 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 relative z-30 w-full sm:w-auto flex-wrap"
+              className="mt-10 sm:mt-14 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 relative z-30 w-full sm:w-auto flex-wrap"
             >
               <a href="#projects" onClick={(e) => { e.preventDefault(); document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' }); }}>
                 <NeoButton variant="primary">
-                  View Projects <ArrowRight className="ml-2 h-5 w-5" />
+                  View featured work <ArrowRight className="ml-2 h-5 w-5" />
                 </NeoButton>
               </a>
               <a href="#contact" onClick={(e) => { e.preventDefault(); document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }); }}>
-                <NeoButton variant="secondary">
-                  <Mail className="mr-2 h-5 w-5" /> Contact Me
-                </NeoButton>
+                <span className="inline-flex items-center gap-2 font-bold uppercase tracking-wider underline decoration-2 underline-offset-4 hover:text-neo-accent">
+                  <Mail className="h-4 w-4" /> Contact
+                </span>
               </a>
               <a href="/Rushabh_Shete_Resume.pdf" target="_blank" rel="noreferrer">
-                <NeoButton variant="outline" className="bg-white text-black hover:bg-gray-100">
-                  <Download className="mr-2 h-5 w-5" /> Download Resume
-                </NeoButton>
+                <span className="inline-flex items-center gap-2 font-bold uppercase tracking-wider underline decoration-2 underline-offset-4 hover:text-neo-accent">
+                  <Download className="h-4 w-4" /> Résumé
+                </span>
               </a>
-              <NeoButton onClick={() => setGameState("instructions")} variant="primary" className="bg-neo-accent text-white hover:bg-neo-accent/90">
-                <Gamepad2 className="mr-2 h-5 w-5" /> Play Game
-              </NeoButton>
             </motion.div>
           </motion.div>
         )}
 
-        {gameState === "instructions" && (
-          <motion.div
-            key="game-popup"
-            initial={{ opacity: 0, scale: 0.8, y: 50 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.8, y: -50 }}
-            transition={{ type: "spring", bounce: 0.4, duration: 0.6 }}
-            className="bg-white text-black border-4 border-black p-6 sm:p-10 shadow-[8px_8px_0px_#000] flex flex-col items-center gap-6 z-40 relative max-w-sm w-full mx-auto"
-          >
-            <h2 className="text-3xl sm:text-4xl font-black uppercase text-center leading-none">Snake Game</h2>
-            <div className="flex flex-col items-center gap-3 font-bold bg-neo-muted p-4 border-2 border-black w-full shadow-neo-sm">
-              <p className="uppercase tracking-widest text-sm mb-2 text-center">Use Arrows to Play</p>
-              <div className="flex flex-col items-center gap-1">
-                <div className="w-12 h-12 border-2 border-black flex items-center justify-center bg-white shadow-[2px_2px_0px_#000]">↑</div>
-                <div className="flex gap-1">
-                  <div className="w-12 h-12 border-2 border-black flex items-center justify-center bg-white shadow-[2px_2px_0px_#000]">←</div>
-                  <div className="w-12 h-12 border-2 border-black flex items-center justify-center bg-white shadow-[2px_2px_0px_#000]">↓</div>
-                  <div className="w-12 h-12 border-2 border-black flex items-center justify-center bg-white shadow-[2px_2px_0px_#000]">→</div>
-                </div>
-              </div>
-            </div>
-            <div className="flex gap-4 w-full mt-2">
-              <NeoButton onClick={() => setGameState("idle")} variant="outline" className="flex-1 justify-center bg-white text-black">
-                <X className="mr-1 sm:mr-2 h-4 w-4 sm:h-5 sm:w-5" /> Cancel
-              </NeoButton>
-              <NeoButton onClick={() => setGameState("playing")} variant="primary" className="flex-1 justify-center bg-neo-accent text-white">
-                <Check className="mr-1 sm:mr-2 h-4 w-4 sm:h-5 sm:w-5" /> OK
-              </NeoButton>
-            </div>
-          </motion.div>
-        )}
       </AnimatePresence>
 
       <AnimatePresence>
